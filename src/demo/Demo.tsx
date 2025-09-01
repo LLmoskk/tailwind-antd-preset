@@ -1,7 +1,19 @@
 import React from 'react';
-import { Palette, Eye, Code, Download } from 'lucide-react';
+import { Palette, Eye, Code, Download, Copy, Check } from 'lucide-react';
 
 const Demo: React.FC = () => {
+  const [copiedClass, setCopiedClass] = React.useState<string | null>(null);
+
+  const copyToClipboard = async (className: string) => {
+    try {
+      await navigator.clipboard.writeText(className);
+      setCopiedClass(className);
+      setTimeout(() => setCopiedClass(null), 2000);
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  };
+
   // 从实际的颜色数据中获取颜色值
   const lightColors = {
     blue: ['#e6f4ff', '#bae0ff', '#91caff', '#69b1ff', '#4096ff', '#1677ff', '#0958d9', '#003eb3', '#002c8c', '#001d66'],
