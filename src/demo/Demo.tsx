@@ -1,5 +1,5 @@
 import React from 'react';
-import { Palette, Eye, Code, Download, Copy, Check } from 'lucide-react';
+import { Palette, Eye, Code, Download, Check } from 'lucide-react';
 
 const Demo: React.FC = () => {
   const [copiedClass, setCopiedClass] = React.useState<string | null>(null);
@@ -77,6 +77,18 @@ const Demo: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+      {/* Toast Notification */}
+      {copiedClass && (
+        <div
+          className="fixed top-5 right-5 bg-white border border-green-200 rounded-lg shadow-lg p-4 flex items-center space-x-3 z-50"
+        >
+          <Check className="w-5 h-5 text-green-600" />
+          <div>
+            <p className="text-green-800 font-medium">Copied to clipboard!</p>
+            <code className="text-green-700 text-sm font-mono">{copiedClass}</code>
+          </div>
+        </div>
+      )}
       {/* Header */}
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-8 py-6">
@@ -146,8 +158,9 @@ export default {
               {Object.entries(primaryColors).map(([colorName, colorValue]) => (
                 <div key={colorName} className="text-center">
                   <div
-                    className={`bg-antd-primary-${colorName} h-20 w-full rounded-lg shadow-sm mb-3 border border-gray-200`}
+                    className={`bg-antd-primary-${colorName} h-20 w-full rounded-lg shadow-sm mb-3 border border-gray-200 cursor-pointer transition-transform hover:scale-105`}
                     style={{ backgroundColor: colorValue }}
+                    onClick={() => copyToClipboard(`bg-antd-primary-${colorName}`)}
                   />
                   <div className="space-y-1">
                     <p className="font-medium text-gray-700 capitalize text-sm">
@@ -180,7 +193,7 @@ export default {
               {colorNames.map((colorName) => (
                 <div key={colorName} className="border border-gray-100 rounded-lg p-6 bg-gray-50">
                   <h3 className="text-lg font-medium text-gray-700 mb-4 capitalize flex items-center">
-                    <div 
+                    <div
                       className={`w-4 h-4 rounded-full mr-3 bg-antd-${colorName}-6`}
                     />
                     {colorName}
@@ -192,6 +205,7 @@ export default {
                           className={`h-16 rounded-md border border-gray-200 mb-2 shadow-sm hover:shadow-md transition-shadow cursor-pointer`}
                           style={{ backgroundColor: getColorValue(colorName, index + 1, false) }}
                           title={`bg-antd-${colorName}-${index + 1}`}
+                          onClick={() => copyToClipboard(`bg-antd-${colorName}-${index + 1}`)}
                         />
                         <span className="text-xs text-gray-500 font-mono">
                           {index + 1}
@@ -219,7 +233,7 @@ export default {
               {colorNames.map((colorName) => (
                 <div key={colorName} className="border border-gray-100 rounded-lg p-6 bg-gray-900">
                   <h3 className="text-lg font-medium text-white mb-4 capitalize flex items-center">
-                    <div 
+                    <div
                       className={`w-4 h-4 rounded-full mr-3 bg-antd-dark-${colorName}-6`}
                     />
                     {colorName} (Dark)
@@ -231,6 +245,7 @@ export default {
                           className={`h-16 rounded-md border border-gray-600 mb-2 shadow-sm hover:shadow-md transition-shadow cursor-pointer`}
                           style={{ backgroundColor: getColorValue(colorName, index + 1, true) }}
                           title={`bg-antd-dark-${colorName}-${index + 1}`}
+                          onClick={() => copyToClipboard(`bg-antd-dark-${colorName}-${index + 1}`)}
                         />
                         <span className="text-xs text-gray-400 font-mono">
                           {index + 1}
@@ -254,18 +269,8 @@ export default {
               <Code className="w-6 h-6 text-antd-primary-blue" />
               <h2 className="text-2xl font-semibold text-gray-800">Usage Examples</h2>
             </div>
-            
-            {/* Copy notification */}
-            {copiedClass && (
-              <div className="mb-6 bg-green-50 border border-green-200 rounded-lg p-4 flex items-center space-x-3">
-                <Check className="w-5 h-5 text-green-600" />
-                <div>
-                  <p className="text-green-800 font-medium">Copied to clipboard!</p>
-                  <code className="text-green-700 text-sm font-mono">{copiedClass}</code>
-                </div>
-              </div>
-            )}
-            
+
+
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Buttons */}
               <div>
@@ -285,7 +290,7 @@ export default {
                       Warning
                     </button>
                   </div>
-                  
+
                   <div className="bg-antd-blue-1 border border-antd-blue-3 p-4 rounded-lg">
                     <div className="flex items-center space-x-2 mb-2">
                       <div className="w-2 h-2 bg-antd-primary-blue rounded-full"></div>
@@ -304,7 +309,7 @@ export default {
                     <h4 className="text-antd-purple-8 font-semibold mb-2">Gradient Card</h4>
                     <p className="text-antd-purple-7 text-sm">Beautiful gradients using Ant Design colors</p>
                   </div>
-                  
+
                   <div className="grid grid-cols-3 gap-3">
                     <div className="bg-antd-green-1 border-l-4 border-antd-primary-green p-3 rounded">
                       <p className="text-antd-green-8 text-xs font-medium">Success</p>
@@ -350,7 +355,7 @@ export default {
                 </code>
               </pre>
             </div>
-            
+
             <div>
               <h3 className="text-lg font-medium text-gray-300 mb-4">Dark Theme Usage</h3>
               <pre className="bg-gray-800 p-4 rounded-lg text-sm overflow-x-auto">
@@ -366,7 +371,7 @@ export default {
 </p>
 
 <!-- Mixed usage -->
-<div className="bg-antd-dark-purple-2 
+<div className="bg-antd-dark-purple-2
             border border-antd-dark-purple-4">
   <h3 className="text-antd-dark-purple-9">
     Dark theme card
