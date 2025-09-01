@@ -146,9 +146,21 @@ export default {
               {Object.entries(primaryColors).map(([colorName, colorValue]) => (
                 <div key={colorName} className="text-center">
                   <div
-                    className={`bg-antd-primary-${colorName} h-20 w-full rounded-lg shadow-sm mb-3 border border-gray-200`}
+                    className={`h-20 w-full rounded-lg shadow-sm mb-3 border border-gray-200 cursor-pointer hover:shadow-md transition-all duration-200 hover:scale-105 relative group`}
                     style={{ backgroundColor: colorValue }}
-                  />
+                    onClick={() => copyToClipboard(`bg-antd-primary-${colorName}`)}
+                    title={`Click to copy: bg-antd-primary-${colorName}`}
+                  >
+                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 rounded-lg transition-all duration-200 flex items-center justify-center">
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white bg-opacity-90 rounded-full p-2">
+                        {copiedClass === `bg-antd-primary-${colorName}` ? (
+                          <Check className="w-4 h-4 text-green-600" />
+                        ) : (
+                          <Copy className="w-4 h-4 text-gray-700" />
+                        )}
+                      </div>
+                    </div>
+                  </div>
                   <div className="space-y-1">
                     <p className="font-medium text-gray-700 capitalize text-sm">
                       {colorName}
