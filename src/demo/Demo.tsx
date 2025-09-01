@@ -189,21 +189,10 @@ export default {
                     {Array.from({ length: 10 }, (_, index) => (
                       <div key={index} className="text-center">
                         <div
-                          className={`h-16 rounded-md border border-gray-200 mb-2 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer hover:scale-105 relative group`}
+                          className={`h-16 rounded-md border border-gray-200 mb-2 shadow-sm hover:shadow-md transition-shadow cursor-pointer`}
                           style={{ backgroundColor: getColorValue(colorName, index + 1, false) }}
-                          onClick={() => copyToClipboard(`bg-antd-${colorName}-${index + 1}`)}
-                          title={`Click to copy: bg-antd-${colorName}-${index + 1}`}
-                        >
-                          <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 rounded-md transition-all duration-200 flex items-center justify-center">
-                            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white bg-opacity-90 rounded-full p-1">
-                              {copiedClass === `bg-antd-${colorName}-${index + 1}` ? (
-                                <Check className="w-3 h-3 text-green-600" />
-                              ) : (
-                                <Copy className="w-3 h-3 text-gray-700" />
-                              )}
-                            </div>
-                          </div>
-                        </div>
+                          title={`bg-antd-${colorName}-${index + 1}`}
+                        />
                         <span className="text-xs text-gray-500 font-mono">
                           {index + 1}
                         </span>
@@ -265,6 +254,18 @@ export default {
               <Code className="w-6 h-6 text-antd-primary-blue" />
               <h2 className="text-2xl font-semibold text-gray-800">Usage Examples</h2>
             </div>
+            
+            {/* Copy notification */}
+            {copiedClass && (
+              <div className="mb-6 bg-green-50 border border-green-200 rounded-lg p-4 flex items-center space-x-3">
+                <Check className="w-5 h-5 text-green-600" />
+                <div>
+                  <p className="text-green-800 font-medium">Copied to clipboard!</p>
+                  <code className="text-green-700 text-sm font-mono">{copiedClass}</code>
+                </div>
+              </div>
+            )}
+            
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Buttons */}
               <div>
