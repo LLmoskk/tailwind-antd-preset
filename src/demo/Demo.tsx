@@ -146,21 +146,9 @@ export default {
               {Object.entries(primaryColors).map(([colorName, colorValue]) => (
                 <div key={colorName} className="text-center">
                   <div
-                    className={`h-20 w-full rounded-lg shadow-sm mb-3 border border-gray-200 cursor-pointer hover:shadow-md transition-all duration-200 hover:scale-105 relative group`}
+                    className={`bg-antd-primary-${colorName} h-20 w-full rounded-lg shadow-sm mb-3 border border-gray-200`}
                     style={{ backgroundColor: colorValue }}
-                    onClick={() => copyToClipboard(`bg-antd-primary-${colorName}`)}
-                    title={`Click to copy: bg-antd-primary-${colorName}`}
-                  >
-                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 rounded-lg transition-all duration-200 flex items-center justify-center">
-                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white bg-opacity-90 rounded-full p-2">
-                        {copiedClass === `bg-antd-primary-${colorName}` ? (
-                          <Check className="w-4 h-4 text-green-600" />
-                        ) : (
-                          <Copy className="w-4 h-4 text-gray-700" />
-                        )}
-                      </div>
-                    </div>
-                  </div>
+                  />
                   <div className="space-y-1">
                     <p className="font-medium text-gray-700 capitalize text-sm">
                       {colorName}
@@ -201,10 +189,21 @@ export default {
                     {Array.from({ length: 10 }, (_, index) => (
                       <div key={index} className="text-center">
                         <div
-                          className={`h-16 rounded-md border border-gray-200 mb-2 shadow-sm hover:shadow-md transition-shadow cursor-pointer`}
+                          className={`h-16 rounded-md border border-gray-200 mb-2 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer hover:scale-105 relative group`}
                           style={{ backgroundColor: getColorValue(colorName, index + 1, false) }}
-                          title={`bg-antd-${colorName}-${index + 1}`}
-                        />
+                          onClick={() => copyToClipboard(`bg-antd-${colorName}-${index + 1}`)}
+                          title={`Click to copy: bg-antd-${colorName}-${index + 1}`}
+                        >
+                          <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 rounded-md transition-all duration-200 flex items-center justify-center">
+                            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white bg-opacity-90 rounded-full p-1">
+                              {copiedClass === `bg-antd-${colorName}-${index + 1}` ? (
+                                <Check className="w-3 h-3 text-green-600" />
+                              ) : (
+                                <Copy className="w-3 h-3 text-gray-700" />
+                              )}
+                            </div>
+                          </div>
+                        </div>
                         <span className="text-xs text-gray-500 font-mono">
                           {index + 1}
                         </span>
