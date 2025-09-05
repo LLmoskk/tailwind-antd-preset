@@ -14,7 +14,7 @@ A comprehensive Tailwind CSS preset that provides the complete Ant Design color 
 ## Installation
 
 ```bash
-npm install tailwind-antd-preset
+npm install antd-tailwind-preset
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ npm install tailwind-antd-preset
 Add the preset to your `tailwind.config.js`:
 
 ```javascript
-import antdPreset from 'tailwind-antd-preset';
+import antdPreset from 'antd-tailwind-preset';
 
 export default {
   presets: [antdPreset],
@@ -128,7 +128,7 @@ Each color family includes 10 carefully crafted shades:
 This package includes comprehensive TypeScript definitions:
 
 ```typescript
-import type { AntdColorPalette, TailwindColorObject } from 'tailwind-antd-preset';
+import type { AntdColorPalette, TailwindColorObject } from 'antd-tailwind-preset';
 ```
 
 ## Compatibility
