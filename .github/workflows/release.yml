@@ -17,16 +17,16 @@ jobs:
         with:
           node-version: lts/*
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9
+      - name: Enable Corepack
+        run: |
+          corepack enable
+          echo "Corepack enabled, package manager will be automatically managed"
 
       - name: Install dependencies
         run: pnpm install
 
       - name: Build
-        run: pnpm build
+        run: pnpm build:lib
 
       - name: Run semantic-release
         env:
