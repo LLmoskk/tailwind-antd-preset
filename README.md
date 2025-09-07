@@ -1,5 +1,7 @@
 # Tailwind Ant Design Preset
 
+[简体中文](./README.zh-CN.md)
+
 A comprehensive Tailwind CSS preset that provides the complete Ant Design color palette, including both light and dark theme variants, for seamless integration with your projects.
 
 ## Features
@@ -76,40 +78,40 @@ Single-value primary colors for quick access:
 
 ```html
 <!-- Light theme examples -->
-<div class="bg-antd-blue-6 text-white p-4 rounded">Primary Blue Button</div>
-<div class="bg-antd-red-5 text-white p-4 rounded">Error State</div>
-<div class="bg-antd-green-6 text-white p-4 rounded">Success State</div>
+<div class="p-4 text-white rounded bg-antd-blue-6">Primary Blue Button</div>
+<div class="p-4 text-white rounded bg-antd-red-5">Error State</div>
+<div class="p-4 text-white rounded bg-antd-green-6">Success State</div>
 
 <!-- Dark theme examples -->
-<div class="bg-antd-dark-blue-6 text-white p-4 rounded">Dark Primary Blue</div>
-<div class="bg-antd-dark-red-5 text-white p-4 rounded">Dark Error State</div>
+<div class="p-4 text-white rounded bg-antd-dark-blue-6">Dark Primary Blue</div>
+<div class="p-4 text-white rounded bg-antd-dark-red-5">Dark Error State</div>
 
 <!-- Primary color shortcuts -->
-<button class="bg-antd-primary-blue hover:bg-antd-blue-7 text-white px-4 py-2 rounded transition-colors">
+<button class="px-4 py-2 text-white rounded transition-colors bg-antd-primary-blue hover:bg-antd-blue-7">
   Quick Primary Button
 </button>
 
 <!-- Text and border colors -->
 <p class="text-antd-blue-6">Blue text</p>
-<div class="border border-antd-grey-4 p-4">Grey border</div>
+<div class="p-4 border border-antd-grey-4">Grey border</div>
 ```
 
 ### Advanced Examples
 
 ```html
 <!-- Gradient backgrounds -->
-<div class="bg-gradient-to-r from-antd-purple-1 to-antd-blue-1 p-6">
+<div class="p-6 bg-gradient-to-r from-antd-purple-1 to-antd-blue-1">
   Beautiful gradient
 </div>
 
 <!-- Status cards -->
-<div class="bg-antd-green-1 border border-antd-green-3 p-4 rounded">
-  <h3 class="text-antd-green-8 font-semibold">Success</h3>
+<div class="p-4 rounded border bg-antd-green-1 border-antd-green-3">
+  <h3 class="font-semibold text-antd-green-8">Success</h3>
   <p class="text-antd-green-7">Operation completed successfully</p>
 </div>
 
 <!-- Dark theme card -->
-<div class="bg-antd-dark-grey-2 border border-antd-dark-grey-4 p-6 rounded">
+<div class="p-6 rounded border bg-antd-dark-grey-2 border-antd-dark-grey-4">
   <h3 class="text-antd-dark-grey-9">Dark Theme Card</h3>
   <p class="text-antd-dark-grey-8">Perfect for dark mode interfaces</p>
 </div>
