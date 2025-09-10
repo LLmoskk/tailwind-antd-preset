@@ -1,3 +1,11 @@
+## [1.0.2](https://github.com/LLmoskk/tailwind-antd-preset/compare/v1.0.1...v1.0.2) (2025-09-10)
+
+
+### Bug Fixes
+
+* 清理依赖项 ([05dccb8](https://github.com/LLmoskk/tailwind-antd-preset/commit/05dccb87baa5a8452fd536bd93cfdb366d2ab346))
+* 清理依赖项 ([926b780](https://github.com/LLmoskk/tailwind-antd-preset/commit/926b7800e4e79654a2fdc064dd33f701680ebb8b))
+
 ## [1.0.1](https://github.com/LLmoskk/tailwind-antd-preset/compare/v1.0.0...v1.0.1) (2025-09-05)
 
 
